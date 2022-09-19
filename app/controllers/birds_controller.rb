@@ -1,16 +1,15 @@
 class BirdsController < ApplicationController
 
-  def index 
-    birds = Bird.all
-    render json: birds 
+  def index
+    render json: Bird.all 
   end
 
   def show
     bird = Bird.find_by(id: params[:id])
     if bird
-      render json: bird
+      render json: bird 
     else
-      render json: { error: "Couldn't find bird" }, status: :not_found
+      render json: { error: "Bird not found" }, status: not_found
     end
   end
 end
